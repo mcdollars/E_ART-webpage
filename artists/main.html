@@ -1,0 +1,155 @@
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0; width=device-width">
+<link rel="stylesheet" href="../js/jquery-3.7.0.min.js">
+<link rel="stylesheet" href="../css/style.css">
+<title>
+    artists
+</title>
+
+<body>
+    <div class="fullscreen absolute">
+        <div class="fullscreen absolute bg-alpha-gray"></div>
+        <img src="../img/hb-4.png" width="100%" height="100%" />
+    </div>
+    <header class="main-header">
+        <div class="container">
+            <a href="../index.html">
+                <img src="../img/logo.png">
+            </a>
+            <nav class="main-nav">
+                <ul class="main-nav-list">
+                    <li>
+                        <a href="../about/aboutus.html">About us</a>
+                    </li>
+                    <li>
+                        <a href="../artists/main.html">Artists</a>
+                    </li>
+                    <li>
+                        <a href="../join/main.html">Join us</a>
+                    </li>
+                </ul>
+            </nav>
+            <a href="#" class="mr-46">Subscribe now</a>
+        </div>
+    </header>
+    <div class="content flex justify-center align-center">
+        <div class="profile flex column align-center w-70">
+            <h4 class="w-full">Featured Artists</h4>
+            <div class="w-full">
+                <div class="h-line mb-12" style="width: 233px;"></div>
+            </div>
+            <div class="slider">
+                <div class="box1 firstSlide">
+                    <img class="mySlides" src="../img/profile1.png">
+                    <p class="italic right-0 right">Zeina Aswad</p>
+                    <p class="italic right-0 right">Lebanon</p>
+                </div>
+                <div class="box2">
+                    <img class="mySlides" src="../img/profile2.png">
+                    <p class="italic right-0 right">Zeina Aswad</p>
+                    <p class="italic right-0 right">Lebanon</p>
+                </div>
+                <div class="box3">
+                    <img class="mySlides" src="../img/profile3.png">
+                    <p class="italic right-0 right">Zeina Aswad</p>
+                    <p class="italic right-0 right">Lebanon</p>
+                </div>
+                <div class="box4">
+                    <img class="mySlides" src="../img/profile4.png">
+                    <p class="italic right-0 right">Zeina Aswad</p>
+                    <p class="italic right-0 right">Lebanon</p>
+                </div>
+                <div class="box5">
+                    <img class="mySlides" src="../img/profile5.png">
+                    <p class="italic right-0 right">Zeina Aswad</p>
+                    <p class="italic right-0 right">Lebanon</p>
+                </div>
+            </div>
+            <div class="flex justify-center below">
+                <div class="ellipse bg-gray mr-37" onclick="currentDiv(0)"></div>
+                <div class="ellipse mr-37 bg-gray" onclick="currentDiv(1)"></div>
+                <div class="ellipse bg-white mr-37" onclick="currentDiv(2)"></div>
+                <div class="ellipse bg-gray mr-37" onclick="currentDiv(3)"></div>
+                <div class="ellipse bg-gray" onclick="currentDiv(4)"></div>
+            </div>
+            <a href="all.html" class="button btn2 back absolute">All Artists</a>
+        </div>
+    </div>
+    <div class="sidebar">
+        <div class="flex align-center mb-10">
+            <a href="../index.html" class="flex align-center">
+                <div class="ellipse"></div>
+                <p>Welcome to E-Art</p>
+            </a>
+        </div>
+        <div class="flex align-center mb-10">
+            <a href="main.html" class="flex align-center">
+                <div class="ellipse bg-white"></div>
+                <p class="white">Artists</p>
+            </a>
+        </div>
+        <div class="v-line"></div>
+        <div class="flex align-center mb-10">
+            <a href="../feedbacks/main.html" class="flex align-center">
+                <div class="ellipse"></div>
+                <p>Feedbacks</p>
+            </a>
+        </div>
+        <div class="flex align-center mb-10">
+            <a href="../join/main.html" class="flex align-center">
+                <div class="ellipse"></div>
+                <p>Join us</p>
+            </a>
+        </div>
+    </div>
+</body>
+<script src="../js/jquery-3.7.0.min.js"></script>
+<script>
+    var slideIndex = 2;
+
+    function updateBelowDots() {
+        $('.below div').removeClass('bg-gray')
+        $('.below div').removeClass('bg-white')
+        $('.below div').map((index, elm) => {
+            if (index == slideIndex) {
+                elm.className += ' bg-white'
+            } else {
+                elm.className += ' bg-gray'
+            }
+        })
+    }
+
+    function after() {
+        var firstChild = $('.slider div:first-child').clone();
+        $('.slider div:first-child').remove();
+        $('.slider').append(firstChild)
+        slideIndex = (slideIndex + 1) % 5
+        updateBelowDots()
+    }
+
+    function before() {
+        var lastChild = $('.slider div:last-child').clone();
+        $('.slider div:last-child').remove();
+        $('.slider').prepend(lastChild)
+        slideIndex = (slideIndex + 4) % 5
+        updateBelowDots()
+    }
+
+    window.addEventListener("keydown", function(event) {
+        if (event.key == 'ArrowLeft') {
+            before()
+        } else if (event.key == 'ArrowRight') {
+            after()
+        }
+    })
+
+    window.addEventListener("wheel", function (event) {
+        if (event.deltaY == 100) {
+            before()
+        } else {
+            after()
+        }
+    })
+</script>
+</html>
