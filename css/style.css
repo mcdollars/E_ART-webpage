@@ -319,6 +319,11 @@ p {
     margin-bottom: 78px;
 }
 
+.px-10 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .mr-16 {
     margin-right: 16px;
 }
@@ -363,12 +368,20 @@ p {
     width: 50%;
 }
 
+.w-60 {
+    width: 60%;
+}
+
 .w-70 {
     width: 70%;
 }
 
 .w-80 {
     width: 80%;
+}
+
+.h-60 {
+    height: 60%;
 }
 
 .h-70 {
@@ -416,11 +429,25 @@ p {
 
 .profile {
     width: 50%;
-    height: 70%;
+    height: 50%;
 }
 
 .col-4 {
     width: 33.333%;
+}
+
+
+.col-md-4 {
+    width: 33.333%;
+}
+
+@media screen and (max-width: 1100px) {
+    .col-md-4 {
+        width: 100%;
+    }
+    .col-md {
+        flex-direction: column;
+    }
 }
 
 .round {
@@ -475,20 +502,24 @@ p {
 }
 
 .join-card {
-    padding: 16px 32px 0px 37px;
-    width: 30%;
-    height: 50%;
+    padding: 16px 10px 0px 10px;
+    width: 90%;
     border-bottom: none;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
 
 .join-button {
-    width: 263px;
+    width: 90%;
+    text-align: center;
     border: 1px solid white;
     border-top: none;
     border-radius: 0 0 32px 32px;
     background-color: #8F78A1;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 11px 0;
 }
 
 .join-card .last {
@@ -502,6 +533,10 @@ p {
 .description {
     font-size: 15px;
     line-height: 18px;
+}
+
+.describe {
+    padding: 0 22px 0 27px;
 }
 
 .explanation {
